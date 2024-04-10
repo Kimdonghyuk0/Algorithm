@@ -5,10 +5,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
        String n;
-       int length;
-     //버퍼로 입력받아 자리수 확인
        n=bf.readLine(); 
-       length = n.length();
+     
        
        
        int N, F;
