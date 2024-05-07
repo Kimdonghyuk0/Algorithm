@@ -8,15 +8,16 @@ int charToNumber(char c) {
 int main(void)
 {
 	int L;
-	int result = 0;
-	int k = 1;
+	long long result = 0;
+	long long k = 1;
+	long long M = 1234567891;
 	char s;
 	
 	cin >> L;
 	for (int i = 0; i < L; i++) {
 		cin >> s;
-		result+=charToNumber(s)*k;
-		k *= 31;
+		result = (result + charToNumber(s) * k % M)%M;
+		 k = (k*31)%M;
 	}
 	cout << result;
 
