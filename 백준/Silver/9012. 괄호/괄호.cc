@@ -5,10 +5,13 @@
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     stack<char>check;
     int N;
     int count;
     string inputLine;
+
     cin >> N;
     cin.ignore();
     for (int i = 0; i < N; i++) {
