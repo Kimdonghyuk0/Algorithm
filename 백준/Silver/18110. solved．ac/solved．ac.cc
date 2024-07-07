@@ -8,6 +8,9 @@ using namespace std;
 
 
 int main() {
+    ios::sync_with_stdio(false);
+cin.tie(NULL);
+    
 	double n;
 	int e; //제거해야할 사람수 위,아래 각각
 	cin >> n;
