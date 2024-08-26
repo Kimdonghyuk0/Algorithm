@@ -22,7 +22,7 @@ void bfs(int y, int x) {
 		{
 			yy = y + dy[i];//다음에 이동할 곳
 			xx = x + dx[i];
-			if (xx < 0 || yy < 0 || xx >= M || yy >= N || xx == 0 && yy == 0)continue;
+			if (xx < 0 || yy < 0 || xx >= M || yy >= N )continue;
 			if (visited[yy][xx]) { // 1이상인경우 탐색
 				
 				if (visited[yy][xx] == 1) {
