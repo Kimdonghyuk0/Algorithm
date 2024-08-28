@@ -4,8 +4,8 @@
 
 using namespace std;
 long long zero_nine[10] = { 0 };
-long long num9_999[11];
-long long zero_num10[11];
+long long num9_999[11]; //1-9개수
+long long zero_num10[11]; //0개수
 long long original_size;
 long long resultZero;
 bool flag = true;
