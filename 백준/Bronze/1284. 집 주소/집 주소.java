@@ -29,10 +29,12 @@ public class Main {
                 }
             }
             count+=input.length()+1;
-            bw.write(Integer.toString(count) + "\n");
-            bw.flush();
+            bw.write(Integer.toString(count));
+            bw.newLine();
             input = br.readLine();
         }
+        bw.flush();
 
     }
+
 }
