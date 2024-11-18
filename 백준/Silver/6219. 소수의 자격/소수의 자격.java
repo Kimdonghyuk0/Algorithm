@@ -17,10 +17,10 @@ public class Main {
         boolean check[] = new boolean[4000001]; //기본값 false
         check[1] = true;
         for (int i = 2; i < Math.sqrt(4000000); i++) {
-            int n = i;
-            for (int j = 2; j <= 4000000; j++) {
-                if (n * j > 4000000) break;
-                check[n * j] = true;
+            if (!check[i]) {
+                for (int j = i * i; j <= 4000000; j += i) {
+                    check[j] = true;
+                }
             }
         }
         for (int i = A; i <= B; i++) {
