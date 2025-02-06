@@ -4,7 +4,7 @@ class Solution {
     
     public void dfs(String order, int m, char[] ans, int depth, int start) {
         if (depth == m) {
-            Arrays.sort(ans);
+           // Arrays.sort(ans,0,m); 여기서 정렬을 하면 ans순서가 바뀐상태로 재귀를 탈출하기에 잘못된 결과가 나온다!! 처음에 order를 정렬하고 넣어야한다.
             String str = new String(ans);
             Integer count = map.get(str);
             if (count == null)
