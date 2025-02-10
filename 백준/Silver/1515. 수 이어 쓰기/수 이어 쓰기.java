@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String N = br.readLine();
-        Queue<Character> q = new LinkedList<>();
+        Deque<Character> q = new ArrayDeque<>();
         for (int i = 0; i < N.length(); i++) {
             q.add(N.charAt(i));
         }
