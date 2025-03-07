@@ -25,13 +25,6 @@ class Solution {
             }
            
         }
-        //test
-          for(int i = 0; i<dp.length; i++){
-            for(int k = 0; k<dp[i].length; k++){
-                System.out.print(dp[i][k]);
-            }
-              System.out.println();
-        }
          int min = 121;
             for(int i = 0; i<dp[info.length-1].length; i++){
                 if(dp[info.length-1][i]!=-1&&dp[info.length-1][i]<min)min = dp[info.length-1][i];
