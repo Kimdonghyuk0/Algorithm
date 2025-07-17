@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 import java.io.*;
 import java.util.*;
 
@@ -15,35 +13,23 @@ public class Main {
         for(int i = 0; i<N; i++){
             nums[i] = Integer.parseInt(st.nextToken());
         }
-        int left = 1;
-        int right = N;
-        int ans = 0;
-        while(left<=right){
-            boolean flag = false;
-            int mid = (left+right)/2;
-            int sum = 0;
-            for(int i = 0; i<mid; i++ ){
-                sum+=nums[i]; // 초기 세팅
-            }
+        int left = 0;
+        int right = 0;
+        int ans = Integer.MAX_VALUE;
+        int sum = 0;
+        while(true){
             if(sum>=S){
-                right = mid-1;
-                ans = mid;
-                continue;
+                sum-=nums[left];
+                ans = Math.min(ans,right-left);
+                left++;
             }
-            for(int i = 1; i<N-mid+1; i++ ){
-                sum-=nums[i-1];
-                sum+=nums[i+mid-1];
-                if(sum>=S){
-                    flag = true;
-                    right = mid-1;
-                    ans = mid;
-                    break;
-                }
+            else if (right == N)         // ← 이 시점에 sum>=S 인 경우도 무시하고 무조건 탈출
+                break;
+            else{
+                sum+=nums[right++];
             }
-            if(!flag)left = mid+1;
-
         }
-
+        if(ans==Integer.MAX_VALUE)ans = 0;
         System.out.println(ans);
     }
 
