@@ -61,9 +61,6 @@ public class Main {
                 count = 1;
             } else if (dist[i] == maxDist) {
                 count++;
-                if (i < ans) {
-                    ans = i;
-                }
             }
         }
 
