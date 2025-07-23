@@ -19,26 +19,22 @@ public class Main {
         int ans = 0;
         while(line>=2){
             if(r<line/2&&c<line/2){//1번위치
-                if((r-line/2)>=0)r-=line/2;
-                if((c-line/2)>=0)r-=line/2;
                 line/=2;
             }
             else if(r<line/2&&c>=line/2) {//2번위치
                 ans+=(line/2*line/2);
-                if((r-line/2)>=0)r-=line/2;
-                if((c-line/2)>=0)c-=line/2;
+                c-=line/2;
                 line/=2;
             }
             else if(r>=line/2&&c<line/2) {//3번위치
                 ans+=(line/2*line/2)*2;
-                if((r-line/2)>=0)r-=line/2;
-                if((c-line/2)>=0)c-=line/2;
+                r-=line/2;
                 line/=2;
             }
             else if(r>=line/2&&c>=line/2) {//4번위치
                 ans+=(line/2*line/2)*3;
-                if((r-line/2)>=0)r-=line/2;
-                if((c-line/2)>=0)c-=line/2;
+                r-=line/2;
+                c-=line/2;
                 line/=2;
             }
         }
