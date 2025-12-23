@@ -63,12 +63,15 @@ public class Main {
         Collections.sort(list); //cost기준으로 오름차순 정렬
         int lastValue = 0; // 마지막에 추가된 간선의 가중치는 빼야 마을이 분리됨
         int sum = 0;
+        int cnt = 0;
         for(Node node:list){
             // 만약 사이클이 없다면 추가
             if(union(node.from,node.to)){
                 lastValue = node.cost;
                 sum+=lastValue;
+                cnt++;
             }
+            if(cnt==N-1)break;
         }
         System.out.println(sum-lastValue);
     }
