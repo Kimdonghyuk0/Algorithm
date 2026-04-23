@@ -7,8 +7,8 @@ class Solution {
         for(String[] cloth:clothes){
             map.put(cloth[1],map.getOrDefault(cloth[1],0)+1);
         }
-        for(String s:map.keySet()){
-            sum*=map.get(s)+1;
+        for(int n:map.values()){
+            sum*=n+1;
         }
         return sum-1;
     }
