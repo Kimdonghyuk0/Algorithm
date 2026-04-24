@@ -1,21 +1,23 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
-    public String solution(int[] nums) {
-        Integer[] numbers = Arrays.stream(nums).boxed().toArray(Integer[]::new);
-
-        String answer;
-        Arrays.sort(numbers,(a,b)->{
-            String ab = a.toString()+b.toString();
-            String ba = b.toString()+a.toString();
-            return ba.compareTo(ab);
+    
+    public String solution(int[] numbers) {
+        List<String> s = new ArrayList<>();
+        for(int i = 0; i<numbers.length; i++){
+            s.add(numbers[i]+"");
+        }
+        
+        s.sort((a,b)->{
+        
+            return (b+a).compareTo((a+b));
         });
         StringBuilder sb = new StringBuilder();
-        for(Integer num : numbers){
-            sb.append(num.toString());
+        for(String str:s)sb.append(str);
+        if (s.get(0).equals("0")) {
+            return "0";
         }
-       answer = new String(sb);
-        if(answer.charAt(0)=='0')return "0";
-        return answer;
+        return sb.toString();
     }
 }
+
