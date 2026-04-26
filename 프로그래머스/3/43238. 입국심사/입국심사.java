@@ -5,7 +5,7 @@ class Solution {
         long max = 0;
         for(int nn:times)if(max<nn)max = nn;
         long left = 0;
-        long right = max*(long)n;
+        long right = max*n;
         long answer = 0;
         while(left<=right){
             long mid = (left+right)/2;
