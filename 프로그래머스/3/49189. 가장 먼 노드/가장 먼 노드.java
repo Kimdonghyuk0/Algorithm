@@ -1,52 +1,44 @@
 import java.util.*;
-
 class Solution {
-    int[]dist; //-1이면 미방문
+    int max = 0;
+    int[] dist; // 1번 노드부터 거리
     List<Integer>[] graph;
-    
     public int solution(int n, int[][] edge) {
         int answer = 0;
-        // 거리 배열 초기화
         dist = new int[n+1];
-        for(int i = 0; i<n+1; i++){
-            dist[i] = -1;
-        }
-        //그래프 초기화
         graph = new List[n+1];
         for(int i = 0; i<n+1; i++){
             graph[i] = new ArrayList<>();
+        }// 그래프 초기화
+        Arrays.fill(dist,-1);
+        //그래프 값 할당
+        for(int i = 0; i<edge.length; i++){
+            int start = edge[i][0];
+            int end = edge[i][1];
+            graph[start].add(end);
+            graph[end].add(start);
         }
-        // 그래프 연결 정보 추가
-        for(int arr[]: edge){
-            graph[arr[0]].add(arr[1]);
-            graph[arr[1]].add(arr[0]);
-        }
-        //bfs 탐색으로 dist 배열에 값 추가
+        
         bfs(1);
-        int max = 0;
-        for(int temp:dist)if(temp>max)max = temp;
-        for(int temp:dist)if(temp==max)answer++;
-        System.out.print(max);
+        for(int num:dist){
+            if(num==max)answer++;
+        }
+        
         return answer;
     }
     void bfs(int start){
-        Queue<int[]> q = new ArrayDeque<>();
-        q.add(new int[]{1,0});
-        dist[1] = 0;
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(start);
+        dist[start] = 0;
         while(!q.isEmpty()){
-            int[] now = q.poll();
-            
-                for(int next:graph[now[0]]){
-                    if(dist[next] == -1){
-                        q.add(new int[]{next,now[1]+1});
-                        dist[next] = now[1]+1;
-                    }
+            int now = q.poll();
+            for(int next:graph[now]){
+                if(dist[next]==-1){
+                    dist[next] = dist[now]+1;
+                    if(dist[next]>max)max = dist[next];
+                    q.add(next);
                 }
-            
+            }
         }
     }
-    
 }
-
-
-//dist배열에 거리 추가하고 가장 큰 값과 같은 개수가 몇개인지 answer
